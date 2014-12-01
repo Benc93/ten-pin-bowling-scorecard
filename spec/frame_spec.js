@@ -61,7 +61,9 @@ describe('Frame', function(){
       frame.score = 8
       ball.score = 3
       expect(frame.addBallScore(ball)).toEqual("Exceeds frame score limit");
-    });   
+    }); 
+
+  
 
 
   });

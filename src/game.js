@@ -24,3 +24,15 @@ Game.prototype.addFrameScore = function(frame) {
   this.score += frame.score
 }
 
+Game.prototype.checkSpare = function(frame) {
+  if ((frame.score === 10) && (frame.balls.length === 2)){
+  return true;
+  };
+}
+
+Game.prototype.checkStrike = function(frame) {
+  if ((frame.score === 10) && (frame.balls.length === 1)){
+  return true;
+  };
+}
+

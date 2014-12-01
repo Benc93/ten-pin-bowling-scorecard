@@ -36,3 +36,4 @@ Frame.prototype.addBallScore = function(ball) {
     return "Exceeds frame score limit"
   }
 };
+

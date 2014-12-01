@@ -42,5 +42,20 @@ beforeEach(function() {
       game.addFrame(frame2);
       expect(game.score).toEqual(17);
     });
+
+    it ('can identify a spare', function(){
+      frame.score = 10;
+      frame.balls.length = 2;
+      expect(game.checkSpare(frame)).toEqual(true);
+      expect(game.checkStrike(frame)).not.toBe(true);
+    });
+
+    it ('can identify a strike', function(){
+      frame.score = 10;
+      frame.balls.length = 1;
+      expect(game.checkStrike(frame)).toEqual(true);
+      expect(game.checkSpare(frame)).not.toBe(true);
+    });  
+
   });
 });
