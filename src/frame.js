@@ -29,5 +29,10 @@ Frame.prototype.setBallPosition = function(ball) {
 }
 
 Frame.prototype.addBallScore = function(ball) {
-  this.score += ball.score
-}
+  if ((ball.score + this.score) < 11){
+    this.score += ball.score
+  }
+  else {
+    return "Exceeds frame score limit"
+  }
+};

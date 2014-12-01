@@ -52,11 +52,16 @@ describe('Frame', function(){
     });
 
     it ('add the score of a throw to the frame\'s score', function(){
-
       ball.addScore(5);
       frame.addBall(ball);
       expect(frame.score).toEqual(5);
-    });      
+    });
+
+    it ('reject throws that exceed the frame score limit', function(){
+      frame.score = 8
+      ball.score = 3
+      expect(frame.addBallScore(ball)).toEqual("Exceeds frame score limit");
+    });   
 
 
   });
