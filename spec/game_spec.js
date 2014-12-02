@@ -1,11 +1,12 @@
 describe('Game', function(){
-var game, frame, ball;
+  
+  var game, frame, frame2;
 
-beforeEach(function() {
-  game  = new Game();
-  frame = new Frame();
-});
-
+  beforeEach(function() {
+    game  = new Game();
+    frame = new Frame();
+    frame2 = new Frame();
+  });
 
   describe('ordering:', function(){
 
@@ -33,8 +34,7 @@ beforeEach(function() {
       expect(game.score).toEqual(0);
     });
 
-    it ('can sum frame scores', function(){
-      var frame2 = new Frame();
+    it ('can sum basic frame scores', function(){
 
       frame.score =  8; 
       frame2.score = 9;   
@@ -43,19 +43,9 @@ beforeEach(function() {
       expect(game.score).toEqual(17);
     });
 
-    it ('can identify a spare', function(){
-      frame.score = 10;
-      frame.balls.length = 2;
-      expect(game.checkSpare(frame)).toEqual(true);
-      expect(game.checkStrike(frame)).not.toBe(true);
-    });
 
-    it ('can identify a strike', function(){
-      frame.score = 10;
-      frame.balls.length = 1;
-      expect(game.checkStrike(frame)).toEqual(true);
-      expect(game.checkSpare(frame)).not.toBe(true);
-    });  
-
+    
+    
   });
+
 });

@@ -63,9 +63,36 @@ describe('Frame', function(){
       expect(frame.addBallScore(ball)).toEqual("Exceeds frame score limit");
     }); 
 
-  
+  });
 
+  describe('bonuses:', function(){
+
+    it ('initialises with frame set to "open"', function(){
+      expect(frame.status).toEqual("open");
+    });
+
+    it ('add the score of a throw to the frame\'s score', function(){
+      ball.addScore(5);
+      frame.addBall(ball);
+      expect(frame.score).toEqual(5);
+    });
+
+    it ('reject throws that exceed the frame score limit', function(){
+      frame.score = 8
+      ball.score = 3
+      expect(frame.addBallScore(ball)).toEqual("Exceeds frame score limit");
+    });
+
+    it ('can have frame status set to "spare"', function(){
+      frame.setSpare();
+      expect(frame.status).toBe("spare");
+    });
+    
+    it ('can have frame status set to "strike"', function(){
+      frame.setStrike();
+      expect(frame.status).toBe("strike");
+    });
 
   });
 
-  });
+});

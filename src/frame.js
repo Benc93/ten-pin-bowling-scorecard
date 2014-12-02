@@ -2,6 +2,7 @@ function Frame() {
   this.score    = 0;
   this.position = 0;
   this.balls    = [];
+  this.status   = "open";
 };
 
 Frame.prototype.addPosition = function(position){
@@ -35,5 +36,22 @@ Frame.prototype.addBallScore = function(ball) {
   else {
     return "Exceeds frame score limit"
   }
-};
+}
+
+Frame.prototype.checkMax = function() {
+  return frame.score === 10;
+}
+
+Frame.prototype.setSpare = function() {
+  this.status = "spare";
+}
+
+Frame.prototype.setStrike = function() {
+  this.status = "strike";
+}
+
+Frame.prototype.setOpen = function() {
+  this.status = "open";
+}
+
 

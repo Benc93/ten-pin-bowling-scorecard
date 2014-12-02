@@ -20,3 +20,4 @@ Ball.prototype.addScore = function(score) {
     return "Invalid score";
   }
 };
+
