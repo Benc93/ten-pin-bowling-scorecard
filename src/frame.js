@@ -19,8 +19,14 @@ Frame.prototype.addRollScore = function(score) {
   }
 }
 
-Frame.prototype.assessBonus = function() {
-  if (this.roll2 > 0){ return 'spare'};
+Frame.prototype.bonusStatus = function() {
+  if (this.roll2 > 0 && this.score === 10){ 
+    return 'spare';
+  }
+  else if (this.roll === 10) {
+    return 'strike';
+  }
+  else { return 'open'};
 }
 
 
