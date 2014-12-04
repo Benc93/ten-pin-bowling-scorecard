@@ -24,6 +24,13 @@ describe('Frame', function(){
       frame.addRoll(4);
       expect(frame.score).toEqual(9);
     });
+
+    it ('can identify a maximum score', function(){
+      expect(frame.maximumScore()).toEqual(10);
+      frame.addRoll(2);
+      expect(frame.maximumScore()).toEqual(8);
+    });
+
   });
 
   describe('bonuses:', function(){
@@ -43,6 +50,11 @@ describe('Frame', function(){
       frame.addRoll(8);
       frame.addRoll(1);
       expect(frame.bonusStatus()).toEqual('open');
+    });
+
+    it ('can identify a live frame', function(){
+      frame.addRoll(8);
+      expect(frame.bonusStatus()).toEqual('live');
     });
 
   });
